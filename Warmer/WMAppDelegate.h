@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JLRoutes.h>
+#import "WMLocationManager.h"
+#import "WMBeaconConstants.h"
 
 @interface WMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) WMLocationManager* locationManager;
 
 @end

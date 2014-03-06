@@ -7,8 +7,64 @@
 //
 
 #import "WMAppDelegate.h"
+#import <Facebook.h>
 
 @implementation WMAppDelegate
+
+-(void)setupRoutes
+{
+    [JLRoutes addRoute:@"/login" handler:^BOOL(NSDictionary *parameters) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
+        
+        self.window.rootViewController=vc;
+        
+        return YES;
+    }];
+    
+    [JLRoutes addRoute:@"/user/:userId" handler:^BOOL(NSDictionary *parameters) {
+        return YES;
+    }];
+    
+    [JLRoutes addRoute:@"/user/me/edit" handler:^BOOL(NSDictionary *parameters) {
+        return YES;
+    }];
+    
+    [JLRoutes addRoute:@"/errors/wontwork" handler:^BOOL(NSDictionary *parameters) {
+        
+        return YES;
+    }];
+    
+    [JLRoutes addRoute:@"/scan" handler:^BOOL(NSDictionary *parameters) {
+        NSLog(@"Routing to scan");
+        
+        UIStoryboard *sb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController* vc=[sb instantiateViewControllerWithIdentifier:@"Radar"];
+        
+        self.window.rootViewController=vc;
+        
+        return YES;
+    }];
+}
+
+-(void)ensureAppWillWork
+{
+    NSArray *locationServicesAuthStatuses = @[@"Not determined",@"Restricted",@"Denied",@"Authorized"];
+    NSArray *backgroundRefreshAuthStatuses = @[@"Restricted",@"Denied",@"Available"];
+    
+    BOOL monitoringAvailable = [CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]];
+    NSLog(@"Monitoring available: %@", [NSNumber numberWithBool:monitoringAvailable]);
+    
+    int lsAuth = (int)[CLLocationManager authorizationStatus];
+    NSLog(@"Location services authorization status: %@", [locationServicesAuthStatuses objectAtIndex:lsAuth]);
+    
+    int brAuth = (int)[[UIApplication sharedApplication] backgroundRefreshStatus];
+    NSLog(@"Background refresh authorization status: %@", [backgroundRefreshAuthStatuses objectAtIndex:brAuth]);
+}
+
+-(void)enableBeaconMonitoring
+{
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -16,7 +72,26 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [self ensureAppWillWork];
+    [self setupRoutes];
+    
+    [JLRoutes routeURL:[NSURL URLWithString:@"/login"]];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

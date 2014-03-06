@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09558DB018C6E60E00E73C17 /* WMWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DAF18C6E60E00E73C17 /* WMWelcomeViewController.m */; };
+		09558DB418C6EDC300E73C17 /* WMEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DB318C6EDC300E73C17 /* WMEditProfileViewController.m */; };
+		09558DB718C6EE4500E73C17 /* WMAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DB618C6EE4500E73C17 /* WMAccessToken.m */; };
+		09558DBA18C6EFBC00E73C17 /* WMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DB918C6EFBC00E73C17 /* WMClient.m */; };
+		09558DBD18C6F3A600E73C17 /* WMJSONRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DBC18C6F3A600E73C17 /* WMJSONRequestSerializer.m */; };
+		09558DC018C6FA9500E73C17 /* WMFacebookAuthenticationClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DBF18C6FA9500E73C17 /* WMFacebookAuthenticationClient.m */; };
+		09558DC318C71CAF00E73C17 /* WMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DC218C71CAF00E73C17 /* WMUser.m */; };
+		09558DC618C726EA00E73C17 /* WMBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DC518C726EA00E73C17 /* WMBeacon.m */; };
+		09558DC918C726F400E73C17 /* WMSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 09558DC818C726F400E73C17 /* WMSighting.m */; };
+		0966566618C85B8400CBD268 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0966566518C85B8400CBD268 /* CoreLocation.framework */; };
+		0966566818C85B8900CBD268 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0966566718C85B8900CBD268 /* CoreBluetooth.framework */; };
+		0966566D18C8649C00CBD268 /* WMRadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0966566C18C8649C00CBD268 /* WMRadarViewController.m */; };
+		0966567118C8773A00CBD268 /* WMBeaconRadarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0966567018C8773A00CBD268 /* WMBeaconRadarManager.m */; };
+		0966567418C87A6C00CBD268 /* WMScan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0966567318C87A6C00CBD268 /* WMScan.m */; };
 		097B300C18C5BBC4000076BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097B300B18C5BBC4000076BB /* Foundation.framework */; };
 		097B300E18C5BBC4000076BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097B300D18C5BBC4000076BB /* CoreGraphics.framework */; };
 		097B301018C5BBC4000076BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097B300F18C5BBC4000076BB /* UIKit.framework */; };
@@ -19,6 +33,9 @@
 		097B302718C5BBC4000076BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097B300F18C5BBC4000076BB /* UIKit.framework */; };
 		097B302F18C5BBC4000076BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 097B302D18C5BBC4000076BB /* InfoPlist.strings */; };
 		097B303118C5BBC4000076BB /* WarmerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B303018C5BBC4000076BB /* WarmerTests.m */; };
+		097B303F18C69A89000076BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097B303E18C69A89000076BB /* Main.storyboard */; };
+		097B304318C6A03B000076BB /* WMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B304218C6A03B000076BB /* WMLocationManager.m */; };
+		CB795268E506491A9321B742 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C13F99820D4F79B9F290F6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +49,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012ADFBECA9D485FA4D6F52E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		09558DAE18C6E60E00E73C17 /* WMWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMWelcomeViewController.h; sourceTree = "<group>"; };
+		09558DAF18C6E60E00E73C17 /* WMWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMWelcomeViewController.m; sourceTree = "<group>"; };
+		09558DB218C6EDC300E73C17 /* WMEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMEditProfileViewController.h; sourceTree = "<group>"; };
+		09558DB318C6EDC300E73C17 /* WMEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMEditProfileViewController.m; sourceTree = "<group>"; };
+		09558DB518C6EE4500E73C17 /* WMAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMAccessToken.h; sourceTree = "<group>"; };
+		09558DB618C6EE4500E73C17 /* WMAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMAccessToken.m; sourceTree = "<group>"; };
+		09558DB818C6EFBC00E73C17 /* WMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMClient.h; sourceTree = "<group>"; };
+		09558DB918C6EFBC00E73C17 /* WMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMClient.m; sourceTree = "<group>"; };
+		09558DBB18C6F3A600E73C17 /* WMJSONRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMJSONRequestSerializer.h; sourceTree = "<group>"; };
+		09558DBC18C6F3A600E73C17 /* WMJSONRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMJSONRequestSerializer.m; sourceTree = "<group>"; };
+		09558DBE18C6FA9500E73C17 /* WMFacebookAuthenticationClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFacebookAuthenticationClient.h; sourceTree = "<group>"; };
+		09558DBF18C6FA9500E73C17 /* WMFacebookAuthenticationClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFacebookAuthenticationClient.m; sourceTree = "<group>"; };
+		09558DC118C71CAF00E73C17 /* WMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMUser.h; sourceTree = "<group>"; };
+		09558DC218C71CAF00E73C17 /* WMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMUser.m; sourceTree = "<group>"; };
+		09558DC418C726EA00E73C17 /* WMBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMBeacon.h; sourceTree = "<group>"; };
+		09558DC518C726EA00E73C17 /* WMBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMBeacon.m; sourceTree = "<group>"; };
+		09558DC718C726F400E73C17 /* WMSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSighting.h; sourceTree = "<group>"; };
+		09558DC818C726F400E73C17 /* WMSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMSighting.m; sourceTree = "<group>"; };
+		0966566518C85B8400CBD268 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0966566718C85B8900CBD268 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		0966566918C85E2700CBD268 /* WMBeaconConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMBeaconConstants.h; sourceTree = "<group>"; };
+		0966566B18C8649C00CBD268 /* WMRadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMRadarViewController.h; sourceTree = "<group>"; };
+		0966566C18C8649C00CBD268 /* WMRadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMRadarViewController.m; sourceTree = "<group>"; };
+		0966566F18C8773A00CBD268 /* WMBeaconRadarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMBeaconRadarManager.h; sourceTree = "<group>"; };
+		0966567018C8773A00CBD268 /* WMBeaconRadarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMBeaconRadarManager.m; sourceTree = "<group>"; };
+		0966567218C87A6C00CBD268 /* WMScan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScan.h; sourceTree = "<group>"; };
+		0966567318C87A6C00CBD268 /* WMScan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScan.m; sourceTree = "<group>"; };
 		097B300818C5BBC4000076BB /* Warmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warmer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097B300B18C5BBC4000076BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		097B300D18C5BBC4000076BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +93,10 @@
 		097B302C18C5BBC4000076BB /* WarmerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WarmerTests-Info.plist"; sourceTree = "<group>"; };
 		097B302E18C5BBC4000076BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		097B303018C5BBC4000076BB /* WarmerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WarmerTests.m; sourceTree = "<group>"; };
+		097B303E18C69A89000076BB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		097B304118C6A03B000076BB /* WMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLocationManager.h; sourceTree = "<group>"; };
+		097B304218C6A03B000076BB /* WMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLocationManager.m; sourceTree = "<group>"; };
+		69C13F99820D4F79B9F290F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +104,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0966566818C85B8900CBD268 /* CoreBluetooth.framework in Frameworks */,
+				0966566618C85B8400CBD268 /* CoreLocation.framework in Frameworks */,
 				097B300E18C5BBC4000076BB /* CoreGraphics.framework in Frameworks */,
 				097B301018C5BBC4000076BB /* UIKit.framework in Frameworks */,
 				097B300C18C5BBC4000076BB /* Foundation.framework in Frameworks */,
+				CB795268E506491A9321B742 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +126,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09558DAD18C6E5F800E73C17 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				09558DAE18C6E60E00E73C17 /* WMWelcomeViewController.h */,
+				09558DAF18C6E60E00E73C17 /* WMWelcomeViewController.m */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		09558DB118C6EDB200E73C17 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				09558DB218C6EDC300E73C17 /* WMEditProfileViewController.h */,
+				09558DB318C6EDC300E73C17 /* WMEditProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		0966566A18C8648500CBD268 /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				0966566B18C8649C00CBD268 /* WMRadarViewController.h */,
+				0966566C18C8649C00CBD268 /* WMRadarViewController.m */,
+				0966566F18C8773A00CBD268 /* WMBeaconRadarManager.h */,
+				0966567018C8773A00CBD268 /* WMBeaconRadarManager.m */,
+			);
+			name = Radar;
+			sourceTree = "<group>";
+		};
 		097B2FFF18C5BBC4000076BB = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +162,7 @@
 				097B302A18C5BBC4000076BB /* WarmerTests */,
 				097B300A18C5BBC4000076BB /* Frameworks */,
 				097B300918C5BBC4000076BB /* Products */,
+				012ADFBECA9D485FA4D6F52E /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +178,13 @@
 		097B300A18C5BBC4000076BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0966566718C85B8900CBD268 /* CoreBluetooth.framework */,
+				0966566518C85B8400CBD268 /* CoreLocation.framework */,
 				097B300B18C5BBC4000076BB /* Foundation.framework */,
 				097B300D18C5BBC4000076BB /* CoreGraphics.framework */,
 				097B300F18C5BBC4000076BB /* UIKit.framework */,
 				097B302418C5BBC4000076BB /* XCTest.framework */,
+				69C13F99820D4F79B9F290F6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,10 +192,16 @@
 		097B301118C5BBC4000076BB /* Warmer */ = {
 			isa = PBXGroup;
 			children = (
+				0966566A18C8648500CBD268 /* Radar */,
+				09558DB118C6EDB200E73C17 /* Profile */,
+				09558DAD18C6E5F800E73C17 /* Onboarding */,
+				097B304018C6A021000076BB /* Location */,
+				097B303A18C69939000076BB /* Networking */,
 				097B301A18C5BBC4000076BB /* WMAppDelegate.h */,
 				097B301B18C5BBC4000076BB /* WMAppDelegate.m */,
 				097B301D18C5BBC4000076BB /* Images.xcassets */,
 				097B301218C5BBC4000076BB /* Supporting Files */,
+				097B303E18C69A89000076BB /* Main.storyboard */,
 			);
 			path = Warmer;
 			sourceTree = "<group>";
@@ -122,6 +213,7 @@
 				097B301418C5BBC4000076BB /* InfoPlist.strings */,
 				097B301718C5BBC4000076BB /* main.m */,
 				097B301918C5BBC4000076BB /* Warmer-Prefix.pch */,
+				0966566918C85E2700CBD268 /* WMBeaconConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -144,6 +236,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		097B303A18C69939000076BB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				09558DB518C6EE4500E73C17 /* WMAccessToken.h */,
+				09558DB618C6EE4500E73C17 /* WMAccessToken.m */,
+				09558DB818C6EFBC00E73C17 /* WMClient.h */,
+				09558DB918C6EFBC00E73C17 /* WMClient.m */,
+				09558DBB18C6F3A600E73C17 /* WMJSONRequestSerializer.h */,
+				09558DBC18C6F3A600E73C17 /* WMJSONRequestSerializer.m */,
+				09558DBE18C6FA9500E73C17 /* WMFacebookAuthenticationClient.h */,
+				09558DBF18C6FA9500E73C17 /* WMFacebookAuthenticationClient.m */,
+				09558DC118C71CAF00E73C17 /* WMUser.h */,
+				09558DC218C71CAF00E73C17 /* WMUser.m */,
+				09558DC418C726EA00E73C17 /* WMBeacon.h */,
+				09558DC518C726EA00E73C17 /* WMBeacon.m */,
+				09558DC718C726F400E73C17 /* WMSighting.h */,
+				09558DC818C726F400E73C17 /* WMSighting.m */,
+				0966567218C87A6C00CBD268 /* WMScan.h */,
+				0966567318C87A6C00CBD268 /* WMScan.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		097B304018C6A021000076BB /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				097B304118C6A03B000076BB /* WMLocationManager.h */,
+				097B304218C6A03B000076BB /* WMLocationManager.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 097B303418C5BBC4000076BB /* Build configuration list for PBXNativeTarget "Warmer" */;
 			buildPhases = (
+				316B0F221F6148A9A4CA54A5 /* Check Pods Manifest.lock */,
 				097B300418C5BBC4000076BB /* Sources */,
 				097B300518C5BBC4000076BB /* Frameworks */,
 				097B300618C5BBC4000076BB /* Resources */,
+				A0927413889D468A9193FCD5 /* Copy Pods Resources */,
+				8EF06E6A397D4808AC1E4FD7 /* Upload Bugsnag dSYM */,
 			);
 			buildRules = (
 			);
@@ -192,6 +319,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Approach Labs";
 				TargetAttributes = {
+					097B300718C5BBC4000076BB = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					097B302218C5BBC4000076BB = {
 						TestTargetID = 097B300718C5BBC4000076BB;
 					};
@@ -220,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				097B303F18C69A89000076BB /* Main.storyboard in Resources */,
 				097B301618C5BBC4000076BB /* InfoPlist.strings in Resources */,
 				097B301E18C5BBC4000076BB /* Images.xcassets in Resources */,
 			);
@@ -235,13 +370,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		316B0F221F6148A9A4CA54A5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8EF06E6A397D4808AC1E4FD7 /* Upload Bugsnag dSYM */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Upload Bugsnag dSYM";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /usr/bin/ruby;
+			shellScript = "\nif ENV[\"DEBUG_INFORMATION_FORMAT\"] != \"dwarf-with-dsym\" or ENV[\"PLATFORM_NAME\"] == \"iphonesimulator\"\n  exit\nend\n\nfork do\n  Process.setsid\n  STDIN.reopen(\"/dev/null\")\n  STDOUT.reopen(\"/dev/null\", \"a\")\n  STDERR.reopen(\"/dev/null\", \"a\")\n\n  require 'shellwords'\n\n  Dir[\"#{ENV[\"DWARF_DSYM_FOLDER_PATH\"]}/#{ENV[\"DWARF_DSYM_FILE_NAME\"]}/Contents/Resources/DWARF/*\"].each do |dsym|\n    system(\"curl -F dsym=@#{Shellwords.escape(dsym)} -F projectRoot=#{Shellwords.escape(ENV[\"PROJECT_DIR\"])} https://upload.bugsnag.com/\")\n  end\nend\n";
+			showEnvVarsInLog = 0;
+		};
+		A0927413889D468A9193FCD5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		097B300418C5BBC4000076BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				097B301C18C5BBC4000076BB /* WMAppDelegate.m in Sources */,
+				0966566D18C8649C00CBD268 /* WMRadarViewController.m in Sources */,
+				0966567118C8773A00CBD268 /* WMBeaconRadarManager.m in Sources */,
 				097B301818C5BBC4000076BB /* main.m in Sources */,
+				09558DB718C6EE4500E73C17 /* WMAccessToken.m in Sources */,
+				09558DC618C726EA00E73C17 /* WMBeacon.m in Sources */,
+				09558DB418C6EDC300E73C17 /* WMEditProfileViewController.m in Sources */,
+				09558DC318C71CAF00E73C17 /* WMUser.m in Sources */,
+				09558DC018C6FA9500E73C17 /* WMFacebookAuthenticationClient.m in Sources */,
+				09558DBA18C6EFBC00E73C17 /* WMClient.m in Sources */,
+				09558DC918C726F400E73C17 /* WMSighting.m in Sources */,
+				09558DBD18C6F3A600E73C17 /* WMJSONRequestSerializer.m in Sources */,
+				097B304318C6A03B000076BB /* WMLocationManager.m in Sources */,
+				0966567418C87A6C00CBD268 /* WMScan.m in Sources */,
+				09558DB018C6E60E00E73C17 /* WMWelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +553,7 @@
 		};
 		097B303518C5BBC4000076BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 012ADFBECA9D485FA4D6F52E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -370,6 +567,7 @@
 		};
 		097B303618C5BBC4000076BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 012ADFBECA9D485FA4D6F52E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -442,6 +640,7 @@
 				097B303618C5BBC4000076BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		097B303718C5BBC4000076BB /* Build configuration list for PBXNativeTarget "WarmerTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +649,7 @@
 				097B303918C5BBC4000076BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
