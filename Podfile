@@ -1,0 +1,10 @@
+platform :ios, '7.0'
+
+pod 'JLRoutes', '~> 1.4'
+pod 'Facebook-iOS-SDK', '~> 3.5'
+pod 'Bugsnag'
+pod 'MBProgressHUD', '~> 0.6'
+pod 'AFNetworking', '~> 2.2'
+pod 'Mantle', '~> 1.4'
+pod 'Overcoat', '~> 1.2'
+pod 'uservoice-iphone-sdk', '~> 3.0'

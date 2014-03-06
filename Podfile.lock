@@ -1,0 +1,53 @@
+PODS:
+  - AFNetworking (2.2.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.0):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.0)
+  - AFNetworking/Security (2.2.0)
+  - AFNetworking/Serialization (2.2.0)
+  - AFNetworking/UIKit (2.2.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - Bugsnag (3.1.1)
+  - Facebook-iOS-SDK (3.12.0)
+  - JLRoutes (1.4)
+  - Mantle (1.4):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.4)
+  - MBProgressHUD (0.8)
+  - Overcoat (1.2.1):
+    - AFNetworking (~> 2.0)
+    - Mantle (~> 1.3)
+  - uservoice-iphone-sdk (3.0.3)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.2)
+  - Bugsnag
+  - Facebook-iOS-SDK (~> 3.5)
+  - JLRoutes (~> 1.4)
+  - Mantle (~> 1.4)
+  - MBProgressHUD (~> 0.6)
+  - Overcoat (~> 1.2)
+  - uservoice-iphone-sdk (~> 3.0)
+
+SPEC CHECKSUMS:
+  AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
+  Bugsnag: 877ad8c9d632397b0685994c93a3e8e76bedc482
+  Facebook-iOS-SDK: c09f7d80db5c48170ff834bc03ebe774c49d1f5b
+  JLRoutes: 8814d5341d2678c2daca045ce538f21e62e558d4
+  Mantle: de026e86c183c5adfd453c1d8419babb787fea97
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  Overcoat: cb0b3f254f347d8a09a8980c3b25a70bb6a28294
+  uservoice-iphone-sdk: 547ef35f8db7ad9975cada6f39e39dc972d87c33
+
+COCOAPODS: 0.29.0
