@@ -47,6 +47,12 @@
     
     [JLRoutes addRoute:@"/scan" handler:^BOOL(NSDictionary *parameters) {
         NSLog(@"Routing to scan");
+        BOOL animate=YES;
+        
+        if(parameters && parameters[@"animate"])
+        {
+            animate=[parameters[@"animate"] boolValue];
+        }
         
         if([self.window.rootViewController.presentedViewController isKindOfClass:[WMEditProfileViewController class]])
         {
@@ -57,7 +63,10 @@
             UIStoryboard *sb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UIViewController* vc=[sb instantiateViewControllerWithIdentifier:@"Radar"];
             
-            [self changeRootViewAnimated:vc];
+            if(animate)
+                [self changeRootViewAnimated:vc];
+            else
+                self.window.rootViewController=vc;
         }
         
         return YES;
@@ -86,6 +95,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Pacifico" size:24.0f]}];
+
     [self ensureAppWillWork];
     [self setupRoutes];
     

@@ -94,6 +94,7 @@ const int MAX_SLOGAN_CHARS=35;
 -(void)populate
 {
     if(!self.user) return;
+    NSLog(@"Populating");
     
     if(self.user.pictureURL)
     {
@@ -136,6 +137,7 @@ const int MAX_SLOGAN_CHARS=35;
         [[WMClient sharedInstance] setCurrentUser:self.user];
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
+            NSLog(@"Calling populate");
             [self populate];
         });
     }];
@@ -158,7 +160,26 @@ const int MAX_SLOGAN_CHARS=35;
         
         if(!error)
         {
-            [JLRoutes routeURL:[NSURL URLWithString:@"/scan"]];
+            // hide everything else
+            // animate the avatar moving into place
+            // do the crossfade transition
+            [UIView animateWithDuration:0.5 animations:^{
+                self.userNameLabel.alpha=0.0f;
+                self.userSloganText.alpha=0.0f;
+                self.sloganCharCountLabel.alpha=0.0f;
+                self.yourGender.alpha=0.0f;
+                self.lookingForGender.alpha=0.0f;
+                self.saveButton.alpha=0.0f;
+                self.lookingForGenderCallout.alpha=0.0f;
+                self.yourGenderCallout.alpha=0.0f;
+                
+                self.userImageView.frame=CGRectMake(128, 252, 64, 64);
+                self.userImageView.layer.cornerRadius=64.0/2.0;
+            } completion:^(BOOL finished) {
+
+                [JLRoutes routeURL:[NSURL URLWithString:@"/scan"]];
+            }];
+
         }
     }];
 }

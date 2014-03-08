@@ -10,8 +10,13 @@
 
 NSString* const kWarmerBeaconBeginBroadcastNotification = @"com.ApproachLabs.Warmer.Notifications.BeaconBroadcastBegin";
 NSString* const kWarmerBeaconEndBroadcastNotification = @"com.ApproachLabs.Warmer.Notifications.BeaconBroadcastEnd";
+NSString* const kWarmerBeaconBeaconsNearbyNotification = @"com.ApproachLabs.Warmer.Notifications.BeaconBeaconsNearby";
+NSString* const kWarmerBeaconNoMoreBeaconsNearbyNotification = @"com.ApproachLabs.Warmer.Notifications.BeaconNoMoreNearby";
 
 @implementation WMBeaconRadarManager
+{
+    int _currentNumRegions;
+}
 
 + (id)sharedInstance {
     static dispatch_once_t once;
@@ -73,9 +78,26 @@ NSString* const kWarmerBeaconEndBroadcastNotification = @"com.ApproachLabs.Warme
     [self.locationManager startBeaconBroadcast];
 }
 
+-(void)incCurrentNumRegions
+{
+    _currentNumRegions++;
+}
+
+-(void)decCurrentNumRegions
+{
+    _currentNumRegions--;
+}
+
+-(BOOL)currentlyInRangeOfBeacons
+{
+    return (_currentNumRegions>0);
+}
+
 -(void)beginMonitoring
 {
     if(!self.locationManager) return;
+    
+    __weak WMBeaconRadarManager* weakSelf=self;
     
     if([CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]])
     {
@@ -92,6 +114,15 @@ NSString* const kWarmerBeaconEndBroadcastNotification = @"com.ApproachLabs.Warme
             // aw yus;
             // notify the sighting service that WE'VE GOT ONE
             
+            // if we weren't in range of any before and now we are, notify the listeners
+            BOOL wasInRange=[weakSelf currentlyInRangeOfBeacons];
+            [weakSelf incCurrentNumRegions];
+            
+            if(!wasInRange)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWarmerBeaconBeaconsNearbyNotification object:nil];
+            }
+            
             [[WMClient sharedInstance] newSighting:[WMBeacon beaconWithCLBeacon:beacon] completion:^(WMSighting *user, NSError *error) {
                 NSLog(@"%@", user);
             }];
@@ -102,6 +133,14 @@ NSString* const kWarmerBeaconEndBroadcastNotification = @"com.ApproachLabs.Warme
             
             // if we're already interacting with them, maybe we just gray them out?
             
+            // if that was the last person we were in range of, let's alert the listeners
+            // we're out of the woods for now.
+            [weakSelf decCurrentNumRegions];
+            
+            if([weakSelf currentlyInRangeOfBeacons])
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kWarmerBeaconNoMoreBeaconsNearbyNotification object:nil];
+            }
         }];
     }
     else

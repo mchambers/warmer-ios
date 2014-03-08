@@ -83,6 +83,9 @@
 	// Do any additional setup after loading the view.
     
     self.fbLoginButton.delegate=self;
+    
+    self.appNameLabel.font=[UIFont fontWithName:@"Pacifico" size:48.0f];
+    self.appNameLabel.textColor=[UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning

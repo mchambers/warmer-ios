@@ -35,6 +35,7 @@
 		097B303118C5BBC4000076BB /* WarmerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B303018C5BBC4000076BB /* WarmerTests.m */; };
 		097B303F18C69A89000076BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097B303E18C69A89000076BB /* Main.storyboard */; };
 		097B304318C6A03B000076BB /* WMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B304218C6A03B000076BB /* WMLocationManager.m */; };
+		09B4964518CBA4920097E445 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09B4964418CBA4920097E445 /* Pacifico.ttf */; };
 		CB795268E506491A9321B742 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C13F99820D4F79B9F290F6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		097B303E18C69A89000076BB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		097B304118C6A03B000076BB /* WMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLocationManager.h; sourceTree = "<group>"; };
 		097B304218C6A03B000076BB /* WMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLocationManager.m; sourceTree = "<group>"; };
+		09B4964418CBA4920097E445 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		69C13F99820D4F79B9F290F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 		097B301118C5BBC4000076BB /* Warmer */ = {
 			isa = PBXGroup;
 			children = (
+				09B4964418CBA4920097E445 /* Pacifico.ttf */,
 				0966566A18C8648500CBD268 /* Radar */,
 				09558DB118C6EDB200E73C17 /* Profile */,
 				09558DAD18C6E5F800E73C17 /* Onboarding */,
@@ -356,6 +359,7 @@
 			files = (
 				097B303F18C69A89000076BB /* Main.storyboard in Resources */,
 				097B301618C5BBC4000076BB /* InfoPlist.strings in Resources */,
+				09B4964518CBA4920097E445 /* Pacifico.ttf in Resources */,
 				097B301E18C5BBC4000076BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

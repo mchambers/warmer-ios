@@ -52,7 +52,7 @@
     if (peripheral.state == CBPeripheralManagerStatePoweredOn)
     {
         // Bluetooth is on, so start broadcasting
-        [self.peripheralManager startAdvertising:self.peripheralData];
+        [peripheral startAdvertising:self.peripheralData];
         if(self.beaconBroadcastBeginHandler)
             self.beaconBroadcastBeginHandler();
     }
@@ -60,7 +60,9 @@
     {
         // Bluetooth isn't on. Stop broadcasting
         _isBroadcasting=NO;
-        [self.peripheralManager stopAdvertising];
+        
+        //[peripheral stopAdvertising];
+        
         if(self.beaconBroadcastEndHandler)
             self.beaconBroadcastEndHandler();
     }
@@ -213,8 +215,6 @@
         
         if(pendingBeaconRegionEntryMessages[region.identifier] && [pendingBeaconRegionEntryMessages[region.identifier] isEqualToValue:@(YES)])
         {
-            NSLog(@"AXSLocationManager: Entering region %@", region.identifier);
-            
             [pendingBeaconRegionEntryMessages removeObjectForKey:region.identifier];
             
             if(self.beaconEnterRegionHandler)
@@ -224,8 +224,6 @@
         }
         else
         {
-            NSLog(@"AXSLocationManager: Ranging beacons in region %@", region.identifier);
-            
             if(self.beaconRangingHandler)
             {
                 self.beaconRangingHandler(beacon, region);
@@ -264,8 +262,6 @@
     knownBeaconStates[region.identifier]=@(state);
     
     void (^regionDepartBlock)(void)=^(void){
-        NSLog(@"AXSLocationManager: Departing region %@", region.identifier);
-        
         [self stopRangingBeaconsInRegion:(CLBeaconRegion*)region];
         self.beaconLeaveRegionHandler((CLBeaconRegion*)region);
     };
@@ -284,7 +280,6 @@
         {
             // start ranging for beacons, queue a region entry message
             // when we have our first hard beacon
-            NSLog(@"AXSLocationManager: Pending entry of region %@", region.identifier);
             
             if(!pendingBeaconRegionEntryMessages)
             {
@@ -292,7 +287,7 @@
             }
             
             pendingBeaconRegionEntryMessages[region.identifier]=@(YES); // we'll consider ourselves having "entered" the region once
-            // we've successfully ranged our first beacon
+                                                                        // we've successfully ranged our first beacon
             
             [self startRangingBeaconsInRegion:(CLBeaconRegion*)region];
             break;

@@ -16,7 +16,7 @@
                                 <rect key="frame" x="20" y="456" width="280" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="VGJ-0G-XpV" customClass="FBLoginView">
@@ -24,11 +24,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warmer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="31o-XV-3EF">
+                                <rect key="frame" x="20" y="103" width="280" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.46914917880000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="PtR-G8-zE3"/>
                     <connections>
+                        <outlet property="appNameLabel" destination="31o-XV-3EF" id="RG7-D3-SNZ"/>
                         <outlet property="fbLoginButton" destination="VGJ-0G-XpV" id="hf2-0m-BFv"/>
                         <outlet property="loginLabel" destination="ic8-QA-wB5" id="xaN-FQ-mFh"/>
                         <segue destination="slt-c6-w7k" kind="push" identifier="EditProfile" id="AyJ-wA-Ms5"/>
@@ -38,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="810" y="75"/>
         </scene>
-        <!--Radar View Controller-->
+        <!--Radar View Controller - Warmer-->
         <scene sceneID="574-c4-uXA">
             <objects>
-                <viewController storyboardIdentifier="Radar" id="15L-5z-hZn" customClass="WMRadarViewController" sceneMemberID="viewController">
+                <viewController id="15L-5z-hZn" customClass="WMRadarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W9A-X4-aLN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,10 +59,10 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EG3-Wl-2Bq">
-                                <rect key="frame" x="128" y="318" width="64" height="21"/>
+                                <rect key="frame" x="88" y="318" width="145" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fFv-4H-1Ad">
@@ -74,8 +82,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.43921568630000002" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Warmer" id="Tba-bZ-v6O"/>
                     <connections>
                         <outlet property="myName" destination="EG3-Wl-2Bq" id="CQO-Hs-s3A"/>
                         <outlet property="myProfileButton" destination="fFv-4H-1Ad" id="VgM-gc-UWM"/>
@@ -86,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBk-wJ-ViJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="755"/>
+            <point key="canvasLocation" x="810" y="755"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="ktx-iS-byF">
@@ -99,17 +108,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kmo-yj-oQc">
                                 <rect key="frame" x="80" y="34" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.13725490200000001" green="0.3921568627" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TJN-AX-ybn">
                                 <rect key="frame" x="20" y="202" width="280" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="02u-Mk-KMm">
                                 <rect key="frame" x="20" y="524" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -124,6 +135,7 @@
                                     <segment title="Male"/>
                                     <segment title="Female"/>
                                 </segments>
+                                <color key="tintColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="yourGenderChanged:" destination="slt-c6-w7k" eventType="valueChanged" id="uKj-FY-6V7"/>
                                 </connections>
@@ -131,8 +143,8 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kbn-AZ-hl5">
                                 <rect key="frame" x="20" y="371" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="r0u-R3-e95">
@@ -143,6 +155,7 @@
                                     <segment title="Female"/>
                                     <segment title="Either"/>
                                 </segments>
+                                <color key="tintColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="lookingForGenderChanged:" destination="slt-c6-w7k" eventType="valueChanged" id="sO2-Sq-kpN"/>
                                 </connections>
@@ -150,8 +163,8 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and you're looking for" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MGk-8U-zuA">
                                 <rect key="frame" x="20" y="443" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="&quot;A little about yourself&quot;" textAlignment="center" minimumFontSize="17" id="WSa-kV-Agx">
@@ -168,16 +181,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.46914917880000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Apv-Ny-LBs"/>
                     <connections>
                         <outlet property="lookingForGender" destination="r0u-R3-e95" id="Xuh-XF-mZK"/>
+                        <outlet property="lookingForGenderCallout" destination="MGk-8U-zuA" id="l0y-3f-2Ik"/>
+                        <outlet property="saveButton" destination="02u-Mk-KMm" id="NDa-iS-ttt"/>
                         <outlet property="sloganCharCountLabel" destination="hGs-IO-koc" id="Um0-TY-A5Q"/>
                         <outlet property="userImageView" destination="kmo-yj-oQc" id="D1x-W7-iuY"/>
                         <outlet property="userNameLabel" destination="TJN-AX-ybn" id="hTQ-1Y-dnm"/>
                         <outlet property="userSloganText" destination="WSa-kV-Agx" id="Lmi-Mr-gj3"/>
                         <outlet property="yourGender" destination="Pt1-77-zlc" id="m7G-mo-QfO"/>
+                        <outlet property="yourGenderCallout" destination="Kbn-AZ-hl5" id="9DA-Pv-0v8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTj-Vk-R5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,6 +217,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgg-4c-ZTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="284" y="75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NpJ-R2-liA">
+            <objects>
+                <navigationController storyboardIdentifier="Radar" automaticallyAdjustsScrollViewInsets="NO" id="W1H-d0-teE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MUW-DS-Tkr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="15L-5z-hZn" kind="relationship" relationship="rootViewController" id="Y4A-rO-TaB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KiA-nW-WqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="755"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

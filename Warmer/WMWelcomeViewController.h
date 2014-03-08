@@ -15,5 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet FBLoginView *fbLoginButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 
 @end

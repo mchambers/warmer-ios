@@ -37,10 +37,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconBroadcastDidBegin:) name:kWarmerBeaconBeginBroadcastNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconBroadcastDidEnd:) name:kWarmerBeaconEndBroadcastNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconsNearby:) name:kWarmerBeaconBeaconsNearbyNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noMoreBeaconsNearby:) name:kWarmerBeaconNoMoreBeaconsNearbyNotification object:nil];
+}
 
+-(void)noMoreBeaconsNearby:(NSNotification*)notif
+{
+    
+}
+
+-(void)beaconsNearby:(NSNotification*)notif
+{
+    // check for sightings; the sightings check auto-reschedules itself
+    // as long as we are in a beacon region
+    
+    // eventually we might want to use APNS for this to reduce the server load
+    // or use APNS + reducing the frequency of the manual checks
+    // we'd also have to manually check if we detect the user has not
+    // enabled push notifications
+    
+    [self checkForUnreadSightings];
 }
 
 -(void)flashStatusMessage
@@ -81,11 +101,11 @@
     
     // Configure the apperence of the circle
     circle.fillColor = [UIColor clearColor].CGColor;
-    circle.strokeColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3].CGColor;
+    circle.strokeColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3].CGColor;
     circle.lineWidth = 2;
     
-    radarRing1.fillColor=[[UIColor orangeColor] colorWithAlphaComponent:0.3].CGColor;
-    radarRing1.strokeColor=[[UIColor orangeColor] colorWithAlphaComponent:0.3].CGColor;
+    radarRing1.fillColor=[[UIColor whiteColor] colorWithAlphaComponent:0.3].CGColor;
+    radarRing1.strokeColor=[[UIColor whiteColor] colorWithAlphaComponent:0.3].CGColor;
     radarRing1.lineWidth=1;
     
     radarRing1.position=CGPointMake(CGRectGetMidX(self.view.frame)-(radius*1),
@@ -180,6 +200,32 @@
     [self updateCurrentUser];
 }
 
+-(void)checkForUnreadSightings
+{
+    NSLog(@"Checking for unread sightings on the server");
+    
+    [[WMClient sharedInstance] getSightingsWithCompletion:^(NSArray *sightings, NSError *error) {
+        if(sightings)
+        {
+            // check for dupes
+            
+            // add these to the ones we're already displaying
+            
+            // mark as read on server
+            
+            // schedule a new sightings check if we're still in range of beacons
+            if([[WMBeaconRadarManager sharedInstance] currentlyInRangeOfBeacons])
+            {
+                double delayInSeconds = 5.0;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self checkForUnreadSightings];
+                });
+            }
+        }
+    }];
+}
+
 -(void)beaconBroadcastDidBegin:(NSNotification*)notif
 {
     WMBeaconRadarManager* radar=[WMBeaconRadarManager sharedInstance];
@@ -191,6 +237,8 @@
         });
         
         [radar beginMonitoring];
+        
+        [self checkForUnreadSightings];
     }
 }
 
@@ -224,9 +272,6 @@
             }
         }];
         
-        [[WMClient sharedInstance] getSightingsWithCompletion:^(NSArray *sightings, NSError *error) {
-            
-        }];
     }
     
 }

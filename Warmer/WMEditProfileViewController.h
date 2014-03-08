@@ -16,9 +16,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *userSloganText;
 @property (weak, nonatomic) IBOutlet UILabel *sloganCharCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yourGenderCallout;
+@property (weak, nonatomic) IBOutlet UILabel *lookingForGenderCallout;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *yourGender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *lookingForGender;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 - (IBAction)yourGenderChanged:(id)sender;
 - (IBAction)lookingForGenderChanged:(id)sender;
