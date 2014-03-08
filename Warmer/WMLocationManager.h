@@ -19,10 +19,14 @@
 @property (nonatomic, copy) BOOL (^locationUpdateTimeOutHandler)();
 @property (nonatomic, copy) void (^acceptableLocationHandler)(CLLocation *location);
 @property (nonatomic, copy) void (^authorizationStatusChangeHandler)(CLAuthorizationStatus status);
-@property (nonatomic, copy) void (^beaconRangingHandler)(NSArray* beacons, CLBeaconRegion* region);
+@property (nonatomic, copy) void (^beaconRangingHandler)(CLBeacon* beacon, CLBeaconRegion* region);
 @property (nonatomic, copy) void (^beaconEnterRegionHandler)(CLBeacon* beacon, CLBeaconRegion* region);
 @property (nonatomic, copy) void (^beaconLeaveRegionHandler)(CLBeaconRegion* region);
-@property (nonatomic, copy) void (^beaconBroadcastErrorStateOccurred)(CBPeripheralManagerState state);
+@property (nonatomic, copy) void (^beaconBroadcastStateChanged)(CBPeripheralManagerState state);
+@property (nonatomic, copy) void (^beaconBroadcastBeginHandler)(void);
+@property (nonatomic, copy) void (^beaconBroadcastEndHandler)(void);
+@property (nonatomic, copy) void (^beaconBroadcastErrorHandler)(CBPeripheralManagerState state);
+
 
 // beacon broadcast stuffs
 @property (nonatomic, retain) CLBeaconRegion* broadcastRegion;

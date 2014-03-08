@@ -8,6 +8,7 @@
 
 #import "WMEditProfileViewController.h"
 #import <JLRoutes.h>
+#import <UIImageView+AFNetworking.h>
 
 @interface WMEditProfileViewController ()
 {
@@ -17,6 +18,8 @@
 
 @end
 
+const int MAX_SLOGAN_CHARS=35;
+
 @implementation WMEditProfileViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -24,6 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.userImageView.layer.cornerRadius=160/2;
     }
     return self;
 }
@@ -41,23 +45,85 @@
                     @(1):@"female",
                     @(2):@"either"
                     };
+    
+    self.userSloganText.delegate=self;
+}
+
+-(void)updateCharCountLabel
+{
+    self.sloganCharCountLabel.text=[NSString stringWithFormat:@"%lu/%i", (unsigned long)self.userSloganText.text.length, MAX_SLOGAN_CHARS];
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(self.sloganCharCountLabel.hidden==YES)
+    {
+        self.sloganCharCountLabel.alpha=0.0f;
+        self.sloganCharCountLabel.hidden=NO;
+    }
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.sloganCharCountLabel.alpha=1.0f;
+    }];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:0.3 animations:^(void){
+        self.sloganCharCountLabel.alpha=0.0f;
+    } completion:^(BOOL finished) {
+        if(finished) self.sloganCharCountLabel.hidden=YES;
+    }];
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [self updateCharCountLabel];
+    if(string && string.length>0 && textField.text.length>=MAX_SLOGAN_CHARS) return NO;
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    self.user.slogan=self.userSloganText.text;
+    
+    [self.view endEditing:YES];
+    return YES;
 }
 
 -(void)populate
 {
-    if(genders[self.user.gender])
+    if(!self.user) return;
+    
+    if(self.user.pictureURL)
     {
-        self.yourGender.selectedSegmentIndex=[genders[self.user.gender] intValue];
+        [self.userImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.user.pictureURL]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            self.userImageView.image=image;
+            self.userImageView.layer.masksToBounds=YES;
+            self.userImageView.layer.cornerRadius=self.userImageView.frame.size.width/2;
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        }];
     }
     
+    if(self.user.name)
+        self.userNameLabel.text=self.user.name;
+    
+    if(self.user.slogan)
+        self.userSloganText.text=self.user.slogan;
+    
+    if(genders[self.user.gender])
+        self.yourGender.selectedSegmentIndex=[genders[self.user.gender] intValue];
+    
     if(self.user.genderSeeking && genders[self.user.genderSeeking])
-    {
         self.lookingForGender.selectedSegmentIndex=[genders[self.user.genderSeeking] intValue];
-    }
     else
-    {
         self.lookingForGender.selectedSegmentIndex=[genders[@"either"] intValue];
-    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -75,13 +141,8 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)yourGenderChanged:(id)sender {
+    // WE AREN'T THAT PROGRESSIVE YET :/
 }
 
 - (IBAction)lookingForGenderChanged:(id)sender {
@@ -90,7 +151,15 @@
 
 - (IBAction)saveButtonTapped:(id)sender {
     // perform save
-    
-    [JLRoutes routeURL:[NSURL URLWithString:@"/scan"]];
+    [[WMClient sharedInstance] updateProfile:self.user completion:^(WMUser *user, NSError *error) {
+        NSLog(@"%@", user);
+        
+        [[WMClient sharedInstance] setCurrentUser:user];
+        
+        if(!error)
+        {
+            [JLRoutes routeURL:[NSURL URLWithString:@"/scan"]];
+        }
+    }];
 }
 @end

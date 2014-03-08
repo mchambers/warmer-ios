@@ -11,6 +11,9 @@
 #import "WMBeaconConstants.h"
 #import "WMClient.h"
 
+extern NSString* const kWarmerBeaconBeginBroadcastNotification;
+extern NSString* const kWarmerBeaconEndBroadcastNotification;
+
 @interface WMBeaconRadarManager : NSObject
 
 @property (nonatomic, retain) WMLocationManager* locationManager;
@@ -26,5 +29,8 @@
  */
 
 +(id)sharedInstance;
+
+-(void)beginBroadcasting:(WMScan*)scan;
+-(void)beginMonitoring;
 
 @end

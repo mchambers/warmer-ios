@@ -12,5 +12,10 @@
 #import "WMBeaconRadarManager.h"
 
 @interface WMRadarViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *myProfileImage;
+@property (weak, nonatomic) IBOutlet UILabel *myName;
+@property (weak, nonatomic) IBOutlet UIButton *myProfileButton;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+- (IBAction)myProfileButtonTapped:(id)sender;
 
 @end

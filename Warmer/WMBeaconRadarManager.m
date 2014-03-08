@@ -8,6 +8,9 @@
 
 #import "WMBeaconRadarManager.h"
 
+NSString* const kWarmerBeaconBeginBroadcastNotification = @"com.ApproachLabs.Warmer.Notifications.BeaconBroadcastBegin";
+NSString* const kWarmerBeaconEndBroadcastNotification = @"com.ApproachLabs.Warmer.Notifications.BeaconBroadcastEnd";
+
 @implementation WMBeaconRadarManager
 
 + (id)sharedInstance {
@@ -52,6 +55,24 @@
     return self;
 }
 
+-(void)beginBroadcasting:(WMScan*)scan
+{
+    [self.locationManager setBeaconBroadcastStateChanged:^(CBPeripheralManagerState state) {
+    }];
+    
+    [self.locationManager setBeaconBroadcastBeginHandler:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWarmerBeaconBeginBroadcastNotification object:nil];
+    }];
+    
+    [self.locationManager setBeaconBroadcastEndHandler:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWarmerBeaconEndBroadcastNotification object:nil];
+        
+    }];
+    
+    self.locationManager.broadcastRegion=[scan beaconRegion];
+    [self.locationManager startBeaconBroadcast];
+}
+
 -(void)beginMonitoring
 {
     if(!self.locationManager) return;
@@ -63,13 +84,17 @@
         
         [self.locationManager startMonitoringForRegion:proxRegion];
         
-        [self.locationManager setBeaconRangingHandler:^(NSArray* beacons, CLBeaconRegion* region) {
-            // sumpfin
+        [self.locationManager setBeaconRangingHandler:^(CLBeacon* beacon, CLBeaconRegion* region) {
+            // report updated range so we can build a distance graph
         }];
         
-        [self.locationManager setBeaconEnterRegionHandler:^(CLBeacon* strongestBeacon, CLBeaconRegion* region) {
+        [self.locationManager setBeaconEnterRegionHandler:^(CLBeacon* beacon, CLBeaconRegion* region) {
             // aw yus;
             // notify the sighting service that WE'VE GOT ONE
+            
+            [[WMClient sharedInstance] newSighting:[WMBeacon beaconWithCLBeacon:beacon] completion:^(WMSighting *user, NSError *error) {
+                NSLog(@"%@", user);
+            }];
         }];
         
         [self.locationManager setBeaconLeaveRegionHandler:^(CLBeaconRegion* region) {

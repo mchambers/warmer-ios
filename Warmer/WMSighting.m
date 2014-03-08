@@ -14,8 +14,8 @@
 {
     return @{
         @"sightingID":@"_id",
-        @"userID":@"userId",
-        @"sightedUserID":@"sightedUserId"
+        @"user":@"userId",
+        @"sightedUser":@"sightedUser"
     };
 }
 @end

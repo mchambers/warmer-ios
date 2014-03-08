@@ -8,8 +8,18 @@
 
 #import "WMAppDelegate.h"
 #import <Facebook.h>
+#import "WMEditProfileViewController.h"
 
 @implementation WMAppDelegate
+
+-(void)changeRootViewAnimated:(UIViewController*)vc
+{
+    [UIView transitionWithView:self.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{ self.window.rootViewController = vc; }
+                    completion:nil];
+}
 
 -(void)setupRoutes
 {
@@ -17,7 +27,7 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"Login"];
         
-        self.window.rootViewController=vc;
+        [self changeRootViewAnimated:vc];
         
         return YES;
     }];
@@ -38,10 +48,17 @@
     [JLRoutes addRoute:@"/scan" handler:^BOOL(NSDictionary *parameters) {
         NSLog(@"Routing to scan");
         
-        UIStoryboard *sb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController* vc=[sb instantiateViewControllerWithIdentifier:@"Radar"];
-        
-        self.window.rootViewController=vc;
+        if([self.window.rootViewController.presentedViewController isKindOfClass:[WMEditProfileViewController class]])
+        {
+            [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            UIStoryboard *sb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController* vc=[sb instantiateViewControllerWithIdentifier:@"Radar"];
+            
+            [self changeRootViewAnimated:vc];
+        }
         
         return YES;
     }];
@@ -60,10 +77,6 @@
     
     int brAuth = (int)[[UIApplication sharedApplication] backgroundRefreshStatus];
     NSLog(@"Background refresh authorization status: %@", [backgroundRefreshAuthStatuses objectAtIndex:brAuth]);
-}
-
--(void)enableBeaconMonitoring
-{
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

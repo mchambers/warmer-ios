@@ -25,7 +25,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="PtR-G8-zE3"/>
                     <connections>
@@ -57,9 +57,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fFv-4H-1Ad">
+                                <rect key="frame" x="128" y="252" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="myProfileButtonTapped:" destination="15L-5z-hZn" eventType="touchUpInside" id="etT-QN-jIb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Hy-r0-xUT">
+                                <rect key="frame" x="20" y="484" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="myName" destination="EG3-Wl-2Bq" id="CQO-Hs-s3A"/>
+                        <outlet property="myProfileButton" destination="fFv-4H-1Ad" id="VgM-gc-UWM"/>
+                        <outlet property="myProfileImage" destination="R41-yU-d5R" id="Ubs-8V-o6z"/>
+                        <outlet property="statusLabel" destination="7Hy-r0-xUT" id="KJo-xq-bgM"/>
+                        <segue destination="slt-c6-w7k" kind="custom" identifier="EditProfileModal" customClass="BlurryModalSegue" id="h5a-uQ-NOz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBk-wJ-ViJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,12 +160,23 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hGs-IO-koc">
+                                <rect key="frame" x="265" y="266" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Apv-Ny-LBs"/>
                     <connections>
                         <outlet property="lookingForGender" destination="r0u-R3-e95" id="Xuh-XF-mZK"/>
+                        <outlet property="sloganCharCountLabel" destination="hGs-IO-koc" id="Um0-TY-A5Q"/>
+                        <outlet property="userImageView" destination="kmo-yj-oQc" id="D1x-W7-iuY"/>
+                        <outlet property="userNameLabel" destination="TJN-AX-ybn" id="hTQ-1Y-dnm"/>
+                        <outlet property="userSloganText" destination="WSa-kV-Agx" id="Lmi-Mr-gj3"/>
                         <outlet property="yourGender" destination="Pt1-77-zlc" id="m7G-mo-QfO"/>
                     </connections>
                 </viewController>
@@ -174,4 +208,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="h5a-uQ-NOz"/>
+    </inferredMetricsTieBreakers>
 </document>

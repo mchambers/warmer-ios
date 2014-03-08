@@ -53,17 +53,21 @@
     {
         // Bluetooth is on, so start broadcasting
         [self.peripheralManager startAdvertising:self.peripheralData];
+        if(self.beaconBroadcastBeginHandler)
+            self.beaconBroadcastBeginHandler();
     }
     else if (peripheral.state == CBPeripheralManagerStatePoweredOff || peripheral.state == CBPeripheralManagerStateUnsupported)
     {
         // Bluetooth isn't on. Stop broadcasting
         _isBroadcasting=NO;
         [self.peripheralManager stopAdvertising];
-        
-        if(self.beaconBroadcastErrorStateOccurred)
-        {
-            self.beaconBroadcastErrorStateOccurred(peripheral.state);
-        }
+        if(self.beaconBroadcastEndHandler)
+            self.beaconBroadcastEndHandler();
+    }
+    
+    if(self.beaconBroadcastStateChanged)
+    {
+        self.beaconBroadcastStateChanged(peripheral.state);
     }
 }
 
@@ -204,31 +208,32 @@
 
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon* strongestBeacon=beacons.firstObject;
-    
-    if(!strongestBeacon) return;
-    
-    if(pendingBeaconRegionEntryMessages[region.identifier] && [pendingBeaconRegionEntryMessages[region.identifier] isEqualToValue:@(YES)])
-    {
-        NSLog(@"AXSLocationManager: Entering region %@", region.identifier);
+    [beacons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CLBeacon* beacon=(CLBeacon*)obj;
         
-        [pendingBeaconRegionEntryMessages removeObjectForKey:region.identifier];
-        
-        if(self.beaconEnterRegionHandler)
+        if(pendingBeaconRegionEntryMessages[region.identifier] && [pendingBeaconRegionEntryMessages[region.identifier] isEqualToValue:@(YES)])
         {
-            self.beaconEnterRegionHandler(strongestBeacon, region);
+            NSLog(@"AXSLocationManager: Entering region %@", region.identifier);
+            
+            [pendingBeaconRegionEntryMessages removeObjectForKey:region.identifier];
+            
+            if(self.beaconEnterRegionHandler)
+            {
+                self.beaconEnterRegionHandler(beacon, region);
+            }
         }
-    }
-    else
-    {
-        NSLog(@"AXSLocationManager: Ranging beacons in region %@", region.identifier);
-        
-        if(self.beaconRangingHandler)
+        else
         {
-            self.beaconRangingHandler(beacons, region);
+            NSLog(@"AXSLocationManager: Ranging beacons in region %@", region.identifier);
+            
+            if(self.beaconRangingHandler)
+            {
+                self.beaconRangingHandler(beacon, region);
+            }
+            
         }
-        
-    }
+    }];
+    
 }
 
 // we force all our region updates through this and track it ourselves

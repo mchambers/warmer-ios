@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "WMClient.h"
 
-@interface WMEditProfileViewController : UIViewController
+@interface WMEditProfileViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) WMUser* user;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *userSloganText;
+@property (weak, nonatomic) IBOutlet UILabel *sloganCharCountLabel;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *yourGender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *lookingForGender;

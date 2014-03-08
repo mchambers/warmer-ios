@@ -41,6 +41,8 @@
         
         if(token)
         {
+            self.fbLoginButton.delegate=nil;
+
             [[WMClient sharedInstance] setCurrentAccessToken:token];
             [self performSegueWithIdentifier:@"EditProfile" sender:self];
         }

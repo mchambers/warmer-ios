@@ -12,7 +12,7 @@
 
 - (instancetype)init
 {
-    return [self initWithBaseURL:[NSURL URLWithString:kWarmerAPILocalDevelopmentURL]];
+    return [self initWithBaseURL:[NSURL URLWithString:kWarmerAPIProductionURL]];
 }
 
 - (instancetype)initWithBaseURL:(NSURL *)url {

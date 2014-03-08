@@ -11,6 +11,7 @@
 @interface WMUser : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, retain) NSString* userID;
+@property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* slogan;
 @property (nonatomic, retain) NSString* pictureURL;
 @property (nonatomic, retain) NSNumber* rating;

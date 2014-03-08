@@ -10,6 +10,21 @@
 
 @implementation WMBeacon
 
++(instancetype)beaconWithCLBeacon:(CLBeacon*)beacon
+{
+    WMBeacon* newBeacon=[[WMBeacon alloc] init];
+    newBeacon.major=beacon.major;
+    newBeacon.minor=beacon.minor;
+    return newBeacon;
+}
+
++(NSDictionary*)JSONKeyPathsByPropertyKey
+{
+    return @{@"major": @"major",
+             @"minor":@"minor",
+             @"ttl":@"ttl"};
+}
+
 -(CLBeaconRegion*)asBeaconRegion
 {
     NSUUID* uuid=[[NSUUID alloc] initWithUUIDString:WMBeaconUUID];

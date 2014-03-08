@@ -7,6 +7,7 @@
 //
 
 #import <Mantle.h>
+#import "WMUser.h"
 
 /*
  var sightingSchema=new Schema({
@@ -22,6 +23,6 @@
 
 @property (nonatomic, strong) NSString* sightingID;
 @property (nonatomic, strong) NSString* userID;
-@property (nonatomic, strong) NSString* sightedUserID;
+@property (nonatomic, strong) WMUser* sightedUser;
 
 @end

@@ -25,8 +25,16 @@ extern NSString* const kWarmerAPIProductionURL;
 @property (nonatomic, retain) WMAccessToken* currentAccessToken;
 @property (nonatomic, retain) WMUser* currentUser;
 
+// profile
+-(void)updateProfile:(WMUser*)user completion:(void (^)(WMUser* user, NSError *error))completion;
 -(void)getProfileWithID:(NSString*)userId completion:(void (^)(WMUser* user, NSError *error))completion;
+
+// scans
 -(void)beginScan:(BOOL)scan completion:(void (^)(WMScan* user, NSError *error))completion;
+
+// sightings
+-(void)newSighting:(WMBeacon*)beacon completion:(void (^)(WMSighting* sighting, NSError *error))completion;
+-(void)getSightingsWithCompletion:(void (^)(NSArray* sightings, NSError *error))completion;
 
 +(id)sharedInstance;
 
