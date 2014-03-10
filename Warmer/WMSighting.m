@@ -18,4 +18,10 @@
         @"sightedUser":@"sightedUser"
     };
 }
+
++(NSValueTransformer*)sightedUserJSONTransformer
+{
+    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[WMUser class]];
+}
+
 @end

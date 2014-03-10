@@ -24,5 +24,6 @@
 @property (nonatomic, strong) NSString* sightingID;
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) WMUser* sightedUser;
+@property (nonatomic, strong) NSDate* expires;
 
 @end

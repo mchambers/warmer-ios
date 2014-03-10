@@ -81,6 +81,78 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="OBD-QD-68N">
+                                <rect key="frame" x="28" y="145" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="29o-im-PGZ">
+                                <rect key="frame" x="128" y="120" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Lte-fQ-v8k">
+                                <rect key="frame" x="228" y="145" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ygf-ND-w93">
+                                <rect key="frame" x="28" y="368" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="p3n-fA-IZH">
+                                <rect key="frame" x="128" y="412" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eI9-44-iTn">
+                                <rect key="frame" x="228" y="368" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L7G-z4-hdk">
+                                <rect key="frame" x="28" y="145" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0rO-7M-cnB">
+                                <rect key="frame" x="128" y="120" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CQG-eq-n9C">
+                                <rect key="frame" x="228" y="145" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DcK-c4-tux">
+                                <rect key="frame" x="28" y="368" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MPq-fE-H0o">
+                                <rect key="frame" x="128" y="412" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C6o-3o-ba7">
+                                <rect key="frame" x="228" y="368" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.43921568630000002" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -90,6 +162,18 @@
                         <outlet property="myProfileButton" destination="fFv-4H-1Ad" id="VgM-gc-UWM"/>
                         <outlet property="myProfileImage" destination="R41-yU-d5R" id="Ubs-8V-o6z"/>
                         <outlet property="statusLabel" destination="7Hy-r0-xUT" id="KJo-xq-bgM"/>
+                        <outletCollection property="userImages" destination="OBD-QD-68N" id="437-09-pCv"/>
+                        <outletCollection property="userImages" destination="29o-im-PGZ" id="W9z-aj-CQD"/>
+                        <outletCollection property="userImages" destination="Lte-fQ-v8k" id="g8p-5m-hLC"/>
+                        <outletCollection property="userImages" destination="ygf-ND-w93" id="kj7-GH-Pr3"/>
+                        <outletCollection property="userImages" destination="p3n-fA-IZH" id="HEV-mq-17j"/>
+                        <outletCollection property="userImages" destination="eI9-44-iTn" id="sYT-I6-dcs"/>
+                        <outletCollection property="userImageButtons" destination="L7G-z4-hdk" id="GnU-Wi-KEL"/>
+                        <outletCollection property="userImageButtons" destination="0rO-7M-cnB" id="uOg-0s-jDa"/>
+                        <outletCollection property="userImageButtons" destination="CQG-eq-n9C" id="Ywe-TJ-Ynt"/>
+                        <outletCollection property="userImageButtons" destination="DcK-c4-tux" id="ztg-uq-b8s"/>
+                        <outletCollection property="userImageButtons" destination="MPq-fE-H0o" id="y33-ws-pPb"/>
+                        <outletCollection property="userImageButtons" destination="C6o-3o-ba7" id="nzr-uh-s9f"/>
                         <segue destination="slt-c6-w7k" kind="custom" identifier="EditProfileModal" customClass="BlurryModalSegue" id="h5a-uQ-NOz"/>
                     </connections>
                 </viewController>

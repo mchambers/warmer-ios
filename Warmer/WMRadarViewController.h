@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *myProfileButton;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 - (IBAction)myProfileButtonTapped:(id)sender;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *userImages;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *userImageButtons;
 
 @end

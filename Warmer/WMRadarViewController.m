@@ -13,6 +13,9 @@
 
 @property (nonatomic, weak) WMLocationManager* locationManager;
 
+@property (nonatomic, strong) NSMutableArray* currentSightings;
+@property (nonatomic, strong) NSMutableDictionary* currentlySightedUserIDs;
+
 @end
 
 @implementation WMRadarViewController
@@ -37,7 +40,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconBroadcastDidBegin:) name:kWarmerBeaconBeginBroadcastNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beaconBroadcastDidEnd:) name:kWarmerBeaconEndBroadcastNotification object:nil];
@@ -200,6 +202,11 @@
     [self updateCurrentUser];
 }
 
+-(void)showCurrentSightings
+{
+    
+}
+
 -(void)checkForUnreadSightings
 {
     NSLog(@"Checking for unread sightings on the server");
@@ -207,11 +214,26 @@
     [[WMClient sharedInstance] getSightingsWithCompletion:^(NSArray *sightings, NSError *error) {
         if(sightings)
         {
-            // check for dupes
+            if(!self.currentSightings)
+                self.currentSightings=[NSMutableArray array];
+            if(!self.currentlySightedUserIDs)
+                self.currentlySightedUserIDs=[NSMutableDictionary dictionary];
             
-            // add these to the ones we're already displaying
+            // check for dupes
+            for(int i=0; i<sightings.count; i++)
+            {
+                WMSighting* sighting=sightings[i];
+                
+                if(![self.currentlySightedUserIDs objectForKey:sighting.sightedUser.userID])
+                {
+                    [self.currentlySightedUserIDs setValue:@(YES) forKey:sighting.sightedUser.userID];
+                    [self.currentSightings addObject:sighting];
+                }
+            }
             
             // mark as read on server
+            
+            [self showCurrentSightings];
             
             // schedule a new sightings check if we're still in range of beacons
             if([[WMBeaconRadarManager sharedInstance] currentlyInRangeOfBeacons])
