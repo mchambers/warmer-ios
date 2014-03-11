@@ -36,6 +36,7 @@
 		097B303F18C69A89000076BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097B303E18C69A89000076BB /* Main.storyboard */; };
 		097B304318C6A03B000076BB /* WMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B304218C6A03B000076BB /* WMLocationManager.m */; };
 		09B4964518CBA4920097E445 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09B4964418CBA4920097E445 /* Pacifico.ttf */; };
+		09E7AE2E18CF05E200F10B85 /* WMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E7AE2D18CF05E200F10B85 /* WMButton.m */; };
 		CB795268E506491A9321B742 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C13F99820D4F79B9F290F6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		097B304118C6A03B000076BB /* WMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLocationManager.h; sourceTree = "<group>"; };
 		097B304218C6A03B000076BB /* WMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLocationManager.m; sourceTree = "<group>"; };
 		09B4964418CBA4920097E445 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		09E7AE2C18CF05E200F10B85 /* WMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMButton.h; sourceTree = "<group>"; };
+		09E7AE2D18CF05E200F10B85 /* WMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMButton.m; sourceTree = "<group>"; };
 		69C13F99820D4F79B9F290F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -194,6 +197,7 @@
 		097B301118C5BBC4000076BB /* Warmer */ = {
 			isa = PBXGroup;
 			children = (
+				09E7AE2B18CF05D500F10B85 /* Controls */,
 				09B4964418CBA4920097E445 /* Pacifico.ttf */,
 				0966566A18C8648500CBD268 /* Radar */,
 				09558DB118C6EDB200E73C17 /* Profile */,
@@ -269,6 +273,15 @@
 				097B304218C6A03B000076BB /* WMLocationManager.m */,
 			);
 			name = Location;
+			sourceTree = "<group>";
+		};
+		09E7AE2B18CF05D500F10B85 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				09E7AE2C18CF05E200F10B85 /* WMButton.h */,
+				09E7AE2D18CF05E200F10B85 /* WMButton.m */,
+			);
+			name = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +445,7 @@
 				0966567118C8773A00CBD268 /* WMBeaconRadarManager.m in Sources */,
 				097B301818C5BBC4000076BB /* main.m in Sources */,
 				09558DB718C6EE4500E73C17 /* WMAccessToken.m in Sources */,
+				09E7AE2E18CF05E200F10B85 /* WMButton.m in Sources */,
 				09558DC618C726EA00E73C17 /* WMBeacon.m in Sources */,
 				09558DB418C6EDC300E73C17 /* WMEditProfileViewController.m in Sources */,
 				09558DC318C71CAF00E73C17 /* WMUser.m in Sources */,

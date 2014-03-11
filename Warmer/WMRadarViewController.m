@@ -8,13 +8,13 @@
 
 #import "WMRadarViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "WMButton.h"
 
 @interface WMRadarViewController ()
 
 @property (nonatomic, weak) WMLocationManager* locationManager;
 
 @property (nonatomic, strong) NSMutableArray* currentSightings;
-@property (nonatomic, strong) NSMutableDictionary* currentlySightedUserIDs;
 
 @end
 
@@ -204,39 +204,79 @@
 
 -(void)showCurrentSightings
 {
+    NSPredicate* pred=[NSPredicate predicateWithFormat:@"(expires > %@)", [NSDate date]];
+    NSArray* unexpiredSightings=[self.currentSightings filteredArrayUsingPredicate:pred];
     
+    long leftovers=unexpiredSightings.count-self.userImages.count;
+    if(leftovers<0) leftovers=0;
+    
+    int j=0;
+    for(int i=0; i<self.userImages.count; i++)
+    {
+        WMSighting* sighting;
+        if(unexpiredSightings.count>j)
+            sighting=unexpiredSightings[j++];
+        
+        if(sighting)
+        {
+            [self.userImages[i] setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:sighting.sightedUser.pictureURL]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                [self.userImages[i] setImage:image];
+                [[self.userImages[i] layer] setCornerRadius:64.0f/2.0f];
+                [[self.userImages[i] layer] setMasksToBounds:YES];
+                [self.userImageButtons[i] setSighting:sighting];
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            }];
+        }
+        else
+        {
+            [self.userImages[i] setImage:nil];
+            [self.userImageButtons[i] setSighting:nil];
+        }
+    }
 }
 
 -(void)checkForUnreadSightings
 {
     NSLog(@"Checking for unread sightings on the server");
+    __block NSMutableDictionary* currentlySightedUserIDs;
     
     [[WMClient sharedInstance] getSightingsWithCompletion:^(NSArray *sightings, NSError *error) {
         if(sightings)
         {
             if(!self.currentSightings)
                 self.currentSightings=[NSMutableArray array];
-            if(!self.currentlySightedUserIDs)
-                self.currentlySightedUserIDs=[NSMutableDictionary dictionary];
+            else
+                [self.currentSightings removeAllObjects];
+            
+            if(!currentlySightedUserIDs)
+                currentlySightedUserIDs=[NSMutableDictionary dictionary];
+            
+            // sort by most recent
+            NSSortDescriptor* sort=[[NSSortDescriptor alloc] initWithKey:@"expires" ascending:NO];
+            NSMutableArray* filtered=[NSMutableArray arrayWithArray:[sightings sortedArrayUsingDescriptors:@[sort]]];
+            // filter expired
+            [filtered filterUsingPredicate:[NSPredicate predicateWithFormat:@"(expires > %@)", [NSDate date]]];
             
             // check for dupes
-            for(int i=0; i<sightings.count; i++)
+            for(int i=0; i<filtered.count; i++)
             {
-                WMSighting* sighting=sightings[i];
+                WMSighting* sighting=filtered[i];
                 
-                if(![self.currentlySightedUserIDs objectForKey:sighting.sightedUser.userID])
+                if(![currentlySightedUserIDs objectForKey:sighting.sightedUser.userID])
                 {
-                    [self.currentlySightedUserIDs setValue:@(YES) forKey:sighting.sightedUser.userID];
+                    [currentlySightedUserIDs setValue:@(YES) forKey:sighting.sightedUser.userID];
                     [self.currentSightings addObject:sighting];
                 }
             }
             
             // mark as read on server
             
+            // display current active sightings
             [self showCurrentSightings];
             
             // schedule a new sightings check if we're still in range of beacons
-            if([[WMBeaconRadarManager sharedInstance] currentlyInRangeOfBeacons])
+            // or if we've got unexpired sightings in our midst
+            if([[WMBeaconRadarManager sharedInstance] currentlyInRangeOfBeacons] || (self.currentSightings && self.currentSightings.count > 0))
             {
                 double delayInSeconds = 5.0;
                 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));

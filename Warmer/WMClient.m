@@ -88,7 +88,7 @@ static id sharedManager = nil;
         return;
     }
     
-    [self POST:@"sightings" object:beacon resultClass:[WMSighting class] resultKeyPath:nil completion:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
+    [self POST:@"sightings" object:beacon resultClass:nil resultKeyPath:nil completion:^(AFHTTPRequestOperation *operation, id responseObject, NSError *error) {
         completion(responseObject, error);
     }];
 }
