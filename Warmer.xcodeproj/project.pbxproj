@@ -35,6 +35,10 @@
 		097B303118C5BBC4000076BB /* WarmerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B303018C5BBC4000076BB /* WarmerTests.m */; };
 		097B303F18C69A89000076BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097B303E18C69A89000076BB /* Main.storyboard */; };
 		097B304318C6A03B000076BB /* WMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 097B304218C6A03B000076BB /* WMLocationManager.m */; };
+		098C471618D2C66600774122 /* UIImage+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 098C471518D2C66600774122 /* UIImage+Round.m */; };
+		098C471918D2CCDB00774122 /* WMProfileCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 098C471818D2CCDB00774122 /* WMProfileCard.m */; };
+		098C471C18D2CEC000774122 /* TLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098C471B18D2CEC000774122 /* TLAlertView.m */; };
+		098C471E18D2CF8800774122 /* ProfileCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 098C471D18D2CF8800774122 /* ProfileCard.xib */; };
 		09B4964518CBA4920097E445 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09B4964418CBA4920097E445 /* Pacifico.ttf */; };
 		09E7AE2E18CF05E200F10B85 /* WMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E7AE2D18CF05E200F10B85 /* WMButton.m */; };
 		CB795268E506491A9321B742 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C13F99820D4F79B9F290F6 /* libPods.a */; };
@@ -98,6 +102,13 @@
 		097B303E18C69A89000076BB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		097B304118C6A03B000076BB /* WMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLocationManager.h; sourceTree = "<group>"; };
 		097B304218C6A03B000076BB /* WMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLocationManager.m; sourceTree = "<group>"; };
+		098C471418D2C66600774122 /* UIImage+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Round.h"; sourceTree = "<group>"; };
+		098C471518D2C66600774122 /* UIImage+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Round.m"; sourceTree = "<group>"; };
+		098C471718D2CCDB00774122 /* WMProfileCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProfileCard.h; sourceTree = "<group>"; };
+		098C471818D2CCDB00774122 /* WMProfileCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProfileCard.m; sourceTree = "<group>"; };
+		098C471A18D2CEC000774122 /* TLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAlertView.h; sourceTree = "<group>"; };
+		098C471B18D2CEC000774122 /* TLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAlertView.m; sourceTree = "<group>"; };
+		098C471D18D2CF8800774122 /* ProfileCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCard.xib; sourceTree = "<group>"; };
 		09B4964418CBA4920097E445 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		09E7AE2C18CF05E200F10B85 /* WMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMButton.h; sourceTree = "<group>"; };
 		09E7AE2D18CF05E200F10B85 /* WMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMButton.m; sourceTree = "<group>"; };
@@ -131,6 +142,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		094ED79218D15FF70000054C /* BeaconLib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BeaconLib;
+			sourceTree = "<group>";
+		};
 		09558DAD18C6E5F800E73C17 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +163,11 @@
 			children = (
 				09558DB218C6EDC300E73C17 /* WMEditProfileViewController.h */,
 				09558DB318C6EDC300E73C17 /* WMEditProfileViewController.m */,
+				098C471718D2CCDB00774122 /* WMProfileCard.h */,
+				098C471818D2CCDB00774122 /* WMProfileCard.m */,
+				098C471A18D2CEC000774122 /* TLAlertView.h */,
+				098C471B18D2CEC000774122 /* TLAlertView.m */,
+				098C471D18D2CF8800774122 /* ProfileCard.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -197,6 +220,7 @@
 		097B301118C5BBC4000076BB /* Warmer */ = {
 			isa = PBXGroup;
 			children = (
+				094ED79218D15FF70000054C /* BeaconLib */,
 				09E7AE2B18CF05D500F10B85 /* Controls */,
 				09B4964418CBA4920097E445 /* Pacifico.ttf */,
 				0966566A18C8648500CBD268 /* Radar */,
@@ -221,6 +245,8 @@
 				097B301718C5BBC4000076BB /* main.m */,
 				097B301918C5BBC4000076BB /* Warmer-Prefix.pch */,
 				0966566918C85E2700CBD268 /* WMBeaconConstants.h */,
+				098C471418D2C66600774122 /* UIImage+Round.h */,
+				098C471518D2C66600774122 /* UIImage+Round.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -373,6 +399,7 @@
 				097B303F18C69A89000076BB /* Main.storyboard in Resources */,
 				097B301618C5BBC4000076BB /* InfoPlist.strings in Resources */,
 				09B4964518CBA4920097E445 /* Pacifico.ttf in Resources */,
+				098C471E18D2CF8800774122 /* ProfileCard.xib in Resources */,
 				097B301E18C5BBC4000076BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,12 +470,15 @@
 				097B301C18C5BBC4000076BB /* WMAppDelegate.m in Sources */,
 				0966566D18C8649C00CBD268 /* WMRadarViewController.m in Sources */,
 				0966567118C8773A00CBD268 /* WMBeaconRadarManager.m in Sources */,
+				098C471C18D2CEC000774122 /* TLAlertView.m in Sources */,
 				097B301818C5BBC4000076BB /* main.m in Sources */,
 				09558DB718C6EE4500E73C17 /* WMAccessToken.m in Sources */,
 				09E7AE2E18CF05E200F10B85 /* WMButton.m in Sources */,
 				09558DC618C726EA00E73C17 /* WMBeacon.m in Sources */,
+				098C471918D2CCDB00774122 /* WMProfileCard.m in Sources */,
 				09558DB418C6EDC300E73C17 /* WMEditProfileViewController.m in Sources */,
 				09558DC318C71CAF00E73C17 /* WMUser.m in Sources */,
+				098C471618D2C66600774122 /* UIImage+Round.m in Sources */,
 				09558DC018C6FA9500E73C17 /* WMFacebookAuthenticationClient.m in Sources */,
 				09558DBA18C6EFBC00E73C17 /* WMClient.m in Sources */,
 				09558DC918C726F400E73C17 /* WMSighting.m in Sources */,

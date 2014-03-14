@@ -9,6 +9,8 @@
 #import "WMRadarViewController.h"
 #import <UIImageView+AFNetworking.h>
 #import "WMButton.h"
+#import "TLAlertView.h"
+#import "WMProfileCard.h"
 
 @interface WMRadarViewController ()
 
@@ -350,6 +352,11 @@
 }
 
 - (IBAction)myProfileButtonTapped:(id)sender {
-    [self performSegueWithIdentifier:@"EditProfileModal" sender:self];
+    //[self performSegueWithIdentifier:@"EditProfileModal" sender:self];
+    //TLAlertView *alertView = [[TLAlertView alloc] initWithTitle:@"Title" message:@"Message" buttonTitle:@"OK"];
+    //[alertView show];
+    UINib* nib=[UINib nibWithNibName:@"ProfileCard" bundle:[NSBundle mainBundle]];
+    WMProfileCard* profile=[[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
+    [profile show];
 }
 @end

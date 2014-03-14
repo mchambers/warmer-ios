@@ -13,8 +13,6 @@
 @property (nonatomic, weak) NSTimer *requestTimer;
 @property (nonatomic, weak) NSDate *requestDate;
 
-@property (nonatomic, strong) NSMutableDictionary* peripheralData;
-@property (nonatomic, strong) CBPeripheralManager* peripheralManager;
 
 @end
 

@@ -19,7 +19,8 @@
 {
     if([[segue.destinationViewController class] isSubclassOfClass:[WMEditProfileViewController class]])
     {
-        
+        UIViewController* destView=segue.destinationViewController;
+        destView.navigationItem.hidesBackButton=YES;
     }
 }
 

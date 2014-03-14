@@ -47,7 +47,7 @@
     
     [JLRoutes addRoute:@"/scan" handler:^BOOL(NSDictionary *parameters) {
         NSLog(@"Routing to scan");
-        BOOL animate=YES;
+        BOOL animate=NO;
         
         if(parameters && parameters[@"animate"])
         {

@@ -32,6 +32,9 @@
 @property (nonatomic, retain) CLBeaconRegion* broadcastRegion;
 @property (nonatomic, readonly) BOOL isBroadcasting;
 
+@property (nonatomic, strong) NSMutableDictionary* peripheralData;
+@property (nonatomic, strong) CBPeripheralManager* peripheralManager;
+
 -(void)startBeaconBroadcast;
 -(void)stopBeaconBroadcast;
 

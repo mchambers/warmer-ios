@@ -9,6 +9,7 @@
 #import "WMEditProfileViewController.h"
 #import <JLRoutes.h>
 #import <UIImageView+AFNetworking.h>
+#import "UIImage+Round.h"
 
 @interface WMEditProfileViewController ()
 {
@@ -47,6 +48,7 @@ const int MAX_SLOGAN_CHARS=35;
                     };
     
     self.userSloganText.delegate=self;
+    
 }
 
 -(void)updateCharCountLabel
@@ -99,9 +101,7 @@ const int MAX_SLOGAN_CHARS=35;
     if(self.user.pictureURL)
     {
         [self.userImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.user.pictureURL]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            self.userImageView.image=image;
-            self.userImageView.layer.masksToBounds=YES;
-            self.userImageView.layer.cornerRadius=self.userImageView.frame.size.width/2;
+            self.userImageView.image=[image roundVersion]; // tee hee
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         }];
     }
@@ -129,6 +129,7 @@ const int MAX_SLOGAN_CHARS=35;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
     [[WMClient sharedInstance] getProfileWithID:@"me" completion:^(WMUser *user, NSError *error) {
         NSLog(@"%@", user);
         
@@ -174,7 +175,7 @@ const int MAX_SLOGAN_CHARS=35;
                 self.yourGenderCallout.alpha=0.0f;
                 
                 self.userImageView.frame=CGRectMake(128, 252, 64, 64);
-                self.userImageView.layer.cornerRadius=64.0/2.0;
+                //self.userImageView.layer.cornerRadius=64.0/2.0;
             } completion:^(BOOL finished) {
 
                 [JLRoutes routeURL:[NSURL URLWithString:@"/scan"]];
