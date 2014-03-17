@@ -20,6 +20,9 @@ extern NSString* const kWarmerAPILocalDevelopmentURL;
 extern NSString* const kWarmerAPIStagingURL;
 extern NSString* const kWarmerAPIProductionURL;
 
+extern NSString* const kWarmerNotificationThumbPostedSuccessfully;
+extern NSString* const kWarmerNotificationThumbPostedFailed;
+
 @interface WMClient : OVCClient
 
 @property (nonatomic, retain) WMAccessToken* currentAccessToken;
@@ -35,6 +38,9 @@ extern NSString* const kWarmerAPIProductionURL;
 // sightings
 -(void)newSighting:(WMBeacon*)beacon completion:(void (^)(WMSighting* sighting, NSError *error))completion;
 -(void)getSightingsWithCompletion:(void (^)(NSArray* sightings, NSError *error))completion;
+
+// thumbs
+-(void)thumbUser:(WMUser*)thumbedUser like:(BOOL)like;
 
 +(id)sharedInstance;
 

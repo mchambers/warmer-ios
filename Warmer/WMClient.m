@@ -11,6 +11,8 @@
 NSString* const kWarmerAPILocalDevelopmentURL=@"http://0.0.0.0:3000/api";
 NSString* const kWarmerAPIStagingURL=@"";
 NSString* const kWarmerAPIProductionURL=@"http://warmer.cloudapp.net/api";
+NSString* const kWarmerNotificationThumbPostedSuccessfully=@"com.ApproachLabs.Warmer.Notifications.ThumbPostedSuccessfully";
+NSString* const kWarmerNotificationThumbPostedFailed=@"com.ApproachLabs.Warmer.Notifications.ThumbPostFailed";
 
 @implementation WMClient
 
@@ -139,6 +141,20 @@ static id sharedManager = nil;
 {
     NSDictionary* dictObj=[MTLJSONAdapter JSONDictionaryFromModel:object];
     return [self PUT:URLString parameters:dictObj resultClass:resultClass resultKeyPath:keyPath completion:block];
+}
+
+-(void)thumbUser:(WMUser*)thumbedUser like:(BOOL)like
+{
+    if(!self.currentUser)
+        return;
+    
+    NSString* path=[NSString stringWithFormat:@"users/%@/thumb", thumbedUser.userID];
+    
+    [self POST:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWarmerNotificationThumbPostedSuccessfully object:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWarmerNotificationThumbPostedFailed object:nil];
+    }];
 }
 
 -(void)beginScan:(BOOL)scan completion:(void (^)(WMScan* scan, NSError *error))completion

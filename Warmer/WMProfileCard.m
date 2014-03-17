@@ -8,6 +8,7 @@
 
 #import "WMProfileCard.h"
 #import <UIImage+ImageEffects.h>
+#import "WMClient.h"
 
 @interface WMProfileCard ()
 @property (nonatomic, strong) UIDynamicAnimator *animator;
@@ -28,6 +29,7 @@
 }
 
 - (IBAction)thumbsUpTapped:(id)sender {
+    
     [self dismiss];
 }
 
@@ -39,6 +41,8 @@
 {
     _user=user;
     
+    self.name.text=user.name;
+    self.slogan.text=user.slogan;
     
 }
 
