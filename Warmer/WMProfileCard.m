@@ -29,11 +29,12 @@
 }
 
 - (IBAction)thumbsUpTapped:(id)sender {
-    
+    [[WMClient sharedInstance] thumbUser:self.user like:YES];
     [self dismiss];
 }
 
 - (IBAction)noThanksTapped:(id)sender {
+    [[WMClient sharedInstance] thumbUser:self.user like:NO];
     [self dismiss];
 }
 
